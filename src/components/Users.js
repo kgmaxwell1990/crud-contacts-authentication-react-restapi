@@ -6,14 +6,15 @@ class Users extends Component {
         super();
         this.state= {
             users: [],
-            clickUserId: 0,
+            clickUserId: 0
         };
     }
 
     handleClick = (user_id) => {
-        console.log(user_id)
-        this.setState({clickUserId:user_id});
-      }
+        this.setState({
+            clickUserId:user_id
+        });
+    }
       
 
     componentDidMount() {
@@ -35,6 +36,7 @@ class Users extends Component {
 
 
     render() {
+        // console.log(this.state.clickUserId)
         return(
             <div>
                 
