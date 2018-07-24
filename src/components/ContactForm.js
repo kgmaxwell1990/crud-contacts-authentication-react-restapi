@@ -14,7 +14,6 @@ class ContactForm extends Component {
         }
 
         const conf = {
-            Authorization: `Token ${localStorage.getItem('token')}`,
             method: "post",
             body: JSON.stringify(data),
             headers: {

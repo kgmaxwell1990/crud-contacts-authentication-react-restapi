@@ -8,7 +8,7 @@ class Contacts extends Component {
             contacts: [],
             owner: "",
             next: "",
-            prev: ""
+            prev: "",
         };
     }
 
@@ -27,6 +27,7 @@ class Contacts extends Component {
                     <div className="box" key={contact.id}>
                         <h4>{contact.first_name} {contact.last_name}</h4>
                         <h5>{contact.email}</h5>
+                        <button onClick={this.delete_item.bind(this, contact.id)}>Delete</button>
                     </div>
                 )
                 
@@ -48,12 +49,12 @@ class Contacts extends Component {
     })
     .then(res => res.json())
     .then(data => {
-        console.log(data)
         let contacts = data.results.map(contact => {
             return(
                 <div className="box" key={contact.id}>
                     <h4>{contact.first_name} {contact.last_name}</h4>
                     <h5>{contact.email}</h5>
+                    <button onClick={this.delete_item.bind(this, contact.id)}>Delete</button>
                 </div>
             )
             
@@ -66,7 +67,17 @@ class Contacts extends Component {
 
  }
 
-  
+    delete_item = (id) => {
+        const conf = {
+        method: "delete",
+        headers: {
+            Authorization: `Token ${localStorage.getItem('token')}`,
+            'Content-Type': 'application/json'
+            }
+        };
+
+        fetch("https://com-devjoy-contactsapi.herokuapp.com/contacts/" + id + "/", conf)
+    }
 
     render() {
             return(
