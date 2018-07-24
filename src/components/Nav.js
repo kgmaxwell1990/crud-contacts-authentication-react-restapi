@@ -7,12 +7,13 @@ class Nav extends Component {
                 <nav className="navbar navbar-default">
                 <div className="container-fluid">
                 <div className="navbar-header">
-                    <a className="navbar-brand" href="#">
+                    <a className="navbar-brand">
                         ContactsApp
                     </a>
                     </div>
                 <ul className="nav navbar-nav navbar-right">
-                    <li>{this.props.logged_in ? <a onClick={this.props.handle_logout}>logout</a> : ''}</li>
+                    <li><a href="#">Address Book</a></li>
+                    <li>{this.props.logged_in ? <a href="#" onClick={this.props.handle_logout}>logout</a> : ''}</li>
                 </ul>
                 
                 </div>

@@ -39,7 +39,7 @@ class App extends Component {
     this.setState({ logged_in: false, username: '' });
   };
 
-  display_form = form => {
+  display_form = (form) => {
     this.setState({
       displayed_form: form
     });
@@ -48,14 +48,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Nav
-          logged_in={this.state.logged_in}
-          display_form={this.display_form}
-          handle_logout={this.handle_logout}
-        />
+        <Nav logged_in={this.state.logged_in} handle_logout={this.handle_logout} />
         <h3>
           {this.state.logged_in
-            ? <Contacts logged_in={this.state.logged_in}/>
+            ? <Contacts logged_in={this.state.logged_in} />
             : <LoginForm handle_login={this.handle_login} />}
         </h3>
       </div>
