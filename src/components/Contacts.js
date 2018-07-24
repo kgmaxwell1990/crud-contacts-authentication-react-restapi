@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ContactForm from './ContactForm'
 
 class Contacts extends Component {
     constructor(props) {
@@ -21,10 +22,9 @@ class Contacts extends Component {
       })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
             let contacts = data.results.map(contact => {
                 return(
-                    <div className="contact" key={contact.id}>
+                    <div className="box" key={contact.id}>
                         <h4>{contact.first_name} {contact.last_name}</h4>
                         <h5>{contact.email}</h5>
                     </div>
@@ -51,7 +51,7 @@ class Contacts extends Component {
         console.log(data)
         let contacts = data.results.map(contact => {
             return(
-                <div className="contact" key={contact.id}>
+                <div className="box" key={contact.id}>
                     <h4>{contact.first_name} {contact.last_name}</h4>
                     <h5>{contact.email}</h5>
                 </div>
@@ -74,31 +74,31 @@ class Contacts extends Component {
                     <h2 className="welcome">Welcome back {this.state.owner}</h2>
                     <div className="add_contact col-sm-4">
                     
-                        <form className="contact">
-                        <h3>Add a contact</h3>
-                            <input type="text" name="first_name" className="form-control" placeholder="First Name"/>
-                            <input type="text" name="last_name" className="form-control" placeholder="Last Name"/>
-                            <input type="email" name="email" className="form-control" placeholder="Email"/>
-                            <input type="submit" value="add" className="btn btn-success" />
+                    <ContactForm />
+
+                        <form className="box searchform">
+                            <input type="text" name="search" className="form-control" placeholder="Search"/>
+                            <input type="submit" value="Search" className="btn btn-success search_btn" />
                         </form>
                     </div>
                     <div className="col-sm-8">
                     
                     {this.state.contacts}
-
+                    <div className="pag_buttons">
                     <button 
-                    className={"btn " + (this.state.prev == "null" ? "disabled": "" )} 
+                    className={"btn pag_btn " + (this.state.prev === "null" ? "disabled": "" )} 
                     onClick={this.handle_pagination.bind(this, this.state.prev)}>
                     <i className="fas fa-chevron-left"></i>
                     prev
                     </button>
 
                     <button 
-                    className={"btn " + (this.state.next == "null" ? "disabled": "" )} 
+                    className={"btn pag_btn " + (this.state.next === "null" ? "disabled": "" )} 
                     onClick={this.handle_pagination.bind(this, this.state.next)}>
                     next
-                    <i class="fas fa-chevron-right"></i>
+                    <i className="fas fa-chevron-right"></i>
                     </button>
+                    </div>
                     </div>
                 </div>
             )
