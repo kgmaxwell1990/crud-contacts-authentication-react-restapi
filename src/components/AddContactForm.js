@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 class ContactForm extends Component {
 
     handleSubmit = (e) => {
+        this.props.updateContacts("https://com-devjoy-contactsapi.herokuapp.com/contacts/")
         e.preventDefault();
         const first_name = this.getFname.value;
         const last_name =  this.getLname.value;
@@ -23,11 +24,12 @@ class ContactForm extends Component {
           };
 
         fetch("https://com-devjoy-contactsapi.herokuapp.com/contacts/", conf)
-        this.props.updateContacts("https://com-devjoy-contactsapi.herokuapp.com/contacts/")
+        
 
         this.getFname.value = '';
         this.getLname.value = '';
         this.getEmail.value = '';
+        this.props.updateContacts("https://com-devjoy-contactsapi.herokuapp.com/contacts/")
       }
     render() {
         return(

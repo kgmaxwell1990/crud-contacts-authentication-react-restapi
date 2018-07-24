@@ -19,7 +19,6 @@ class Contacts extends Component {
   }
 
  updateContacts = (url) => {
-     console.log(this.state.contacts)
     if (this.props.logged_in) {
         fetch(url, {
           headers: {
@@ -66,6 +65,7 @@ class Contacts extends Component {
 
 
     deleteItem = (id) => {
+        this.updateContacts("https://com-devjoy-contactsapi.herokuapp.com/contacts/")
         const conf = {
         method: "delete",
         headers: {
