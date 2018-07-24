@@ -23,6 +23,7 @@ class ContactForm extends Component {
           };
 
         fetch("https://com-devjoy-contactsapi.herokuapp.com/contacts/", conf)
+        this.props.updateContacts("https://com-devjoy-contactsapi.herokuapp.com/contacts/")
 
         this.getFname.value = '';
         this.getLname.value = '';
@@ -36,7 +37,7 @@ class ContactForm extends Component {
                     <input required type="text" name="first_name" ref={(input)=>this.getFname = input} className="form-control" placeholder="First Name"/>
                     <input required type="text" name="last_name" ref={(input)=>this.getLname = input} className="form-control" placeholder="Last Name"/>
                     <input required type="email" name="email" ref={(input)=>this.getEmail = input} className="form-control" placeholder="Email"/>
-                    <input type="submit" value="Add A Contact" className="btn btn-success add_btn" />
+                    <input type="submit" value="Add" className="btn btn-success add_btn" />
                 </form>
             </div>
         );

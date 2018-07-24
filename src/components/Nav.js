@@ -12,7 +12,7 @@ class Nav extends Component {
                     </a>
                     </div>
                 <ul className="nav navbar-nav navbar-right">
-                    <li><a href="#">Address Book</a></li>
+                    <li>{this.props.logged_in ? <a>Welcome back {this.props.username}</a> : ''}</li>
                     <li>{this.props.logged_in ? <a href="#" onClick={this.props.handle_logout}>logout</a> : ''}</li>
                 </ul>
                 

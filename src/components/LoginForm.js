@@ -17,9 +17,11 @@ class LoginForm extends Component {
   };
 
   render() {
+    console.log(this.state.username)
     return (
-    <div className="login_form">
+    <div className="login_form box">
       <form onSubmit={e => this.props.handle_login(e, this.state)}>
+      
         <h1>Log In To Your Account</h1>
         <input
           type="text"
